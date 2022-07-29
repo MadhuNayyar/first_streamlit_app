@@ -6,6 +6,7 @@ my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.co
 
 streamlit.title( 'My Parents New Healthy Diner')
 
+streamlit.header ('Fruityvice Fruit Advice! ')
 streamlit.header ('🥣 Breakfast Menu')
 streamlit.text ('🐔 Omega 3 & Blueberry Oatmeal')
 streamlit.text('🥑 Kale, Spinach & Rocket Smoothie')
@@ -21,4 +22,4 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response)
+streamlit.text(fruityvice_response.json())
